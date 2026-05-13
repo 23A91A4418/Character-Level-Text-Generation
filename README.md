@@ -116,10 +116,3 @@ Matplotlib
 Docker
 Docker Compose
 
----
-
-# Your Task Now
-
-Create these 5 files exactly.
-
-After that, your project is submission-ready.
