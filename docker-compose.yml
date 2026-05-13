@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: text_generation_app
+
+    volumes:
+      - ./input:/app/input
+      - ./results:/app/results
+      - ./models:/app/models
+
+    working_dir: /app
+
+    command: python src/train.py --model lstm
