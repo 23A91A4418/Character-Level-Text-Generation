@@ -4,8 +4,8 @@
 
 This project implements and compares two fundamental sequence models for character-level text generation using PyTorch:
 
-- LSTM (Long Short-Term Memory)
-- Mini Transformer
+* LSTM (Long Short-Term Memory)
+* Mini Transformer
 
 Both models were trained on the Tiny Shakespeare dataset to generate Shakespeare-style text one character at a time.
 
@@ -15,9 +15,7 @@ The project includes complete data preparation, model training, text generation,
 
 ## Dataset
 
-Dataset used:
-
-Tiny Shakespeare Dataset
+### Tiny Shakespeare Dataset
 
 Source:
 https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
@@ -39,80 +37,130 @@ Character-Level-Text-Generation/
 ├── models/
 ├── results/
 └── src/
-Models Implemented
-LSTM Model
+```
+
+---
+
+## Models Implemented
+
+### LSTM Model
 
 The LSTM model uses:
 
-Embedding Layer
-Multi-layer LSTM
-Fully Connected Output Layer
+* Embedding Layer
+* Multi-layer LSTM
+* Fully Connected Output Layer
 
 It performs strong qualitative text generation and produces highly readable Shakespeare-style dialogue.
 
-Transformer Model
+---
+
+### Transformer Model
 
 The Transformer model uses:
 
-Token Embedding
-Positional Embedding
-Transformer Encoder Layers
-Fully Connected Output Layer
+* Token Embedding
+* Positional Embedding
+* Transformer Encoder Layers
+* Fully Connected Output Layer
 
 It performs strong quantitative prediction with lower loss and better perplexity.
 
-Training
+---
 
-Train LSTM:
+## Training
 
+### Train LSTM
+
+```bash
 python src/train.py --model lstm
+```
 
-Train Transformer:
+### Train Transformer
 
+```bash
 python src/train.py --model transformer
-Text Generation
+```
 
-Generate text using LSTM:
+---
 
+## Text Generation
+
+### Generate text using LSTM
+
+```bash
 python src/generate.py --model lstm
+```
 
-Generate text using Transformer:
+### Generate text using Transformer
 
+```bash
 python src/generate.py --model transformer
-Docker Execution
+```
 
-Build container:
+---
 
+## Docker Execution
+
+### Build Container
+
+```bash
 docker-compose build
+```
 
-Run training:
+### Train using Docker
 
+```bash
 docker-compose run --rm app python src/train.py --model lstm
-Results
+```
+
+### Train Transformer using Docker
+
+```bash
+docker-compose run --rm app python src/train.py --model transformer
+```
+
+### Generate Text using Docker
+
+```bash
+docker-compose run --rm app python src/generate.py --model lstm
+docker-compose run --rm app python src/generate.py --model transformer
+```
+
+---
+
+## Results
 
 Generated outputs:
 
-loss_curves.png
-generated_samples.json
-comparison_report.md
+* loss_curves.png
+* generated_samples.json
+* comparison_report.md
 
-Main findings:
+### Main Findings
 
-LSTM generated better readable text
-Transformer achieved better loss and perplexity
-Temperature significantly affected creativity and coherence
-Final Comparison
-Model	Final Loss	Approx Perplexity
-LSTM	0.7342	2.08
-Transformer	0.0335	1.03
+* LSTM generated better readable text
+* Transformer achieved better loss and perplexity
+* Temperature significantly affected creativity and coherence
+
+---
+
+## Final Comparison
+
+| Model       | Final Loss | Approx Perplexity |
+| ----------- | ---------: | ----------------: |
+| LSTM        |     0.7342 |              2.08 |
+| Transformer |     0.0335 |              1.03 |
 
 Transformer performed better quantitatively, while LSTM performed better qualitatively.
 
-Technologies Used
-Python
-PyTorch
-NumPy
-Matplotlib
-Docker
-Docker Compose
+---
 
+## Technologies Used
+
+* Python
+* PyTorch
+* NumPy
+* Matplotlib
+* Docker
+* Docker Compose
